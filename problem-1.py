@@ -22,3 +22,4 @@ print(sum(x))
 
 # time complexity: O(N), N = amount of natural numbers iterated, e.g. 1000
 # space complexity: O(N/3 + N/5) == O(N), assuming if every member can be divisible by 3 or 5, then 1/3 + 1/5 of digits will be retained 
+# code length: 10, this can be improved (maybe using other languages too!)
