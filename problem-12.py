@@ -55,7 +55,10 @@ while max_div < 500:
     inc += 1 
 
 '''
-Time complexity: 
-Space complexity: 
-Code length: 
+Time complexity: O(sqrt(n)*n)
+Space complexity: no storage i.e. O(1)
+Code length: long 
+
+comment: it is certain that more efficient algorithms or more elegant coding styles exist for this problem 
+
 '''
