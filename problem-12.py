@@ -40,10 +40,6 @@ def divisors_count(n):
     return divisors 
 
 
-n = 81
-print(divisors_count(n))
-
-
 # triangle numbers are simply numbers of incrementing the addition by 1 
 # i.e. 1, 1+2, 1+2+3.. 
 
