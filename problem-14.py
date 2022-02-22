@@ -31,6 +31,7 @@ we can reduce the amount of computation needed
 - alternatively, using dict can store sequences beyond n but uses more space 
 '''
 
+from functools import lru_cache
 all_length = [0] * 1000001 
 
 for i in range(1, 1000001):
@@ -59,8 +60,31 @@ print(all_length.index(max(all_length)))
 Time complexity: ? it is unknown how long collatz sequences take, but a useful reference: 
 https://blog.revolutionanalytics.com/2014/04/a-look-a-r-vectorization-through-the-collatz-conjecture.html
 Space complexity: O(N) where n = collatz number limit 
-Code length: compact 
+Code length: compact
 
 comment: time complexity hard to calcualte 
 
 '''
+
+'''
+This solution from stackoverflow exemplifies the use of lru_cache()
+'''
+
+
+@lru_cache(None)
+def coll(num):
+    if num == 1:
+        return 1
+
+    if num % 2:
+        return 1 + coll(num * 3 + 1)
+
+    return 1 + coll(num / 2)
+
+
+longest = 0
+for i in range(1, 1_000_001):
+    this = coll(i)
+    if this > longest:
+        print(i, this)
+        longest = this
