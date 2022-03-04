@@ -15,7 +15,7 @@ How many such routes are there through a 20×20 grid?
 
 from math import factorial 
 
-print(factorial(40)/(factorial(20)*factorial(20))
+print(factorial(40)/(factorial(20)*factorial(20)))
 
 # time complexity: 
 # space complexity:
