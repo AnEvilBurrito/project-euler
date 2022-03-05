@@ -7,6 +7,42 @@ For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 a
 Evaluate the sum of all the amicable numbers under 10000.
 '''
 
+# finding proper divisors in O(sqrt(n)) time in necessary for an efficient solution 
+
+def proper_divisors(n):
+    
+    div = [] 
+    i = 1 
+    while i**2 <= n:
+        if n % i == 0: 
+            div.append(i)
+            if int(n/i) != i and i != 1: 
+                div.append(int(n/i))
+        i += 1 
+
+    return div 
+
+# print(sum(sorted(proper_divisors(284))))
+
+def d(n):
+    # d is defined within the problem 
+    return sum(proper_divisors(n))
+
+# print(d(25))
+
+# find amicable numbers under 10000... 
+
+ami = []
+
+i = 1 
+while i < 10000:
+    a,b = i, d(i) 
+
+    if d(a) == b and d(b) == a and a != b: 
+        ami.append(a)
+    i += 1 
+
+print(sum(ami))
 
 
 '''
