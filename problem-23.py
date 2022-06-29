@@ -15,13 +15,63 @@ is less than this limit.
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 '''
 
+def proper_divisors(n):
+    
+    div = [] 
+    i = 1 
+    while i**2 <= n:
+        if n % i == 0: 
+            div.append(i)
+            if int(n/i) != i and i != 1: 
+                div.append(int(n/i))
+        i += 1 
+
+    return div  
+
+def abundant(n):
+    if sum(proper_divisors(n)) > n:
+        return True 
+    else:
+        return False
+
+abun = {}
+i = 1
+while i < 28123:
+    if abundant(i):
+        abun[i] = True
+    else: 
+        abun[i] = False 
+    i += 1
+
+print('Generated abundant numbers < 28123')
+
+def sumOfAbundant(n):
+    i = 1 
+    while i <= n//2:
+        if abun[i] and abun[n-i]:
+            # print(i, n-i)
+            return True 
+        i += 1 
+
+    return False 
+
+nonAbun = []
+i = 0 
+while i < 28123: 
+    if not sumOfAbundant(i): 
+        nonAbun.append(i)
+    # print('up to', i)
+    i += 1 
+
+print(nonAbun)
+print(sum(nonAbun))
 
 
 '''
-Time complexity: ... 
+Time complexity: can be improved, come back to this!!
 Space complexity: 
 Code length:  
-readability: list comprehension is easy to code, but hard to read later on 
+readability: 
 
 comment: 
 
